@@ -1,0 +1,12 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "private":"true",
+  "main": "test.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
