@@ -1,4 +1,4 @@
-exports.config = {
+const wdioConfig = {
     //
     // ====================
     // Runner Configuration
@@ -292,3 +292,11 @@ exports.config = {
     // onReload: function(oldSessionId, newSessionId) {
     // }
 }
+if (process.env.SELENIUM_HUB_HOST) {
+    wdioConfig.hostname = process.env.SELENIUM_HUB_HOST
+    wdioConfig.port = 4444
+    wdioConfig.path = "/wd/hub"
+} else {
+    wdioConfig.services.push("chromedriver")
+}
+exports.config = wdioConfig;
