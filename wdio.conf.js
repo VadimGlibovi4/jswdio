@@ -1,9 +1,12 @@
-const wdioConfig = {
+exports.config = {
     //
     // ====================
     // Runner Configuration
     // ====================
-    //
+    runner: 'local',
+    hostname: 'localhost',
+    port: 4444,
+    path: '/',
     //
     // ==================
     // Specify Test Files
@@ -94,7 +97,7 @@ const wdioConfig = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://localhost:4444',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -110,7 +113,10 @@ const wdioConfig = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: [
+        'selenium-standalone'
+        // 'chromedriver'
+    ],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -292,11 +298,3 @@ const wdioConfig = {
     // onReload: function(oldSessionId, newSessionId) {
     // }
 }
-if (process.env.SELENIUM_HUB_HOST) {
-    wdioConfig.hostname = process.env.SELENIUM_HUB_HOST
-    wdioConfig.port = 4444
-    wdioConfig.path = "/wd/hub"
-} else {
-    wdioConfig.services.push("chromedriver")
-}
-exports.config = wdioConfig;
