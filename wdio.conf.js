@@ -2,9 +2,8 @@ exports.config = {
     //
     user: process.env.BROWSERSTACK_USERNAME || "bsuser_4pZDVX",
     key: process.env.BROWSERSTACK_ACCESS_KEY || "GZMgyrTpLKBv2eQXsg1H",
-    host: 'hub.browserstack.com',
     services: [
-    ['browserstack'], { browserstackLocal: true }
+        ['browserstack']
     ],
     // ====================
     // Runner Configuration
