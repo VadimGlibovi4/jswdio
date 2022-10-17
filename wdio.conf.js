@@ -113,6 +113,10 @@ exports.config = {
         'selenium-standalone'
         // 'chromedriver'
     ],
+    port: 9515,
+    seleniumArgs: {
+    seleniumArgs: ["-port", "9515"],
+  },
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
